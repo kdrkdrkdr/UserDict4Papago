@@ -3,7 +3,7 @@ from lib.util import ListChunk
 import asyncio
 
 class PapagoTranslator:
-    def __init__(self, text: str, chunk=5):
+    def __init__(self, text: str, chunk=1):
         self.chunk = chunk
         self.text = text
         self.p = Papagopy()
@@ -20,7 +20,7 @@ class PapagoTranslator:
 
     def text_chunk(self, text: str):
         a = text.splitlines()
-        b = ListChunk(a, 1+int(len(a)//self.chunk))
+        b = ListChunk(a, int(len(a)//self.chunk))
         return ['\n'.join(i) for i in b]
 
 

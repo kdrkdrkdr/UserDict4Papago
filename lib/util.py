@@ -15,3 +15,8 @@ def ReadFile(filename: str):
 def ListChunk(lst, n):
     return tuple([tuple(lst[i:i+n]) for i in range(0, len(lst), n)])
 
+
+def ReplaceText(text, repl_dict):
+    for key, value in repl_dict.items():
+        text = str(text).replace(key, value)
+    return text
