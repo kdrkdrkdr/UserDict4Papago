@@ -1,5 +1,5 @@
 import MeCab
-from lib.util import sep, ReplaceText
+from lib.util import ReplaceText
 from lib.convert_dict import ConvertDictionary
 
 class PreFilter:

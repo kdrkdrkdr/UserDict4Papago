@@ -1,5 +1,5 @@
 import re
-from lib.util import ReplaceText, sep
+from lib.util import ReplaceText
 
 
 class PostFilter:
