@@ -1,4 +1,6 @@
-mecab
+mecab-python3
+mecab-ko-dic
+eunjeon
 requests
 ko-pron
 jaconv

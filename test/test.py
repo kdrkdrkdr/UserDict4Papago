@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.abspath("./lib"))
+sys.path.append(os.path.abspath(r"C:\Users\power\Desktop\Project\Dev\UserDict4Papago"))
 import re
 from pprint import pprint
 import cProfile
@@ -13,7 +13,7 @@ from lib.papagopy.papagopy import Papagopy
 def main():
 
     # 파파고에서 안 사라지는 문자 찾아야함.. -> seperator.txt
-    sep = '▒'
+    sep = '▒▒▒'
     sep_nl = '∮' # 분석기에서 사라질 \n 보완
 
     p = Papagopy()
@@ -22,7 +22,7 @@ def main():
 
     t = MeCab.Tagger()
 
-    rf = ReadFile('test.txt')
+    rf = ReadFile('./example_text/t.txt')
     s = rf.replace('\r', '').replace('\n', sep_nl).replace('　', '')
 
 
@@ -36,14 +36,16 @@ def main():
     for sur, idx in b:
         surface[idx] = f'{sep}{sur}{sep}'
 
-    pre = ''.join(surface).replace(f'{sep}{sep}', f'{sep} {sep}').replace(sep_nl, '\n')
+    pre = ''.join(surface).replace(f'{sep}{sep}', f'{sep} {sep}').replace(sep_nl, '\n KDR ')
     trans = p.translate(pre, 'ko', 'ja')
     
     post = trans.replace(f'{sep} ', f'{sep}').replace(f'{sep}{sep}', f'{sep} {sep}')
 
+    c = 0
     for i, j in zip(re.findall(f'{sep}.*?{sep}', post), b):
-        print(i, ' -> ', dictList[j[0]])
+        print(f'{c} :::', i, ' -> ', dictList[j[0]])
         post = post.replace(i, f'{dictList[j[0]]}')
+        c+=1
 
 
     WriteFile(pre, 't-pre.txt') # 전처리

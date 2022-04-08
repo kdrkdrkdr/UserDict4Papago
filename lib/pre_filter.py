@@ -30,5 +30,5 @@ class PreFilter:
             surface[idx] = f'^{self.c._ko2kata(self.dictList[sur])}'
 
         pre = ''.join(surface).replace(sep_nl, '\n')
-        return pre
+        return (pre, b)
         

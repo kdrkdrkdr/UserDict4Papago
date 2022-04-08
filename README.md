@@ -6,6 +6,7 @@
 <br>
 - MeCab 64bit (반드시 설치해야합니다.)
     - https://github.com/ikegami-yukino/mecab/releases
+    - https://github.com/Pusnow/mecab-ko-msvc/releases/tag/release-0.9.2-msvc-3
 <br>
 - Pip Requirements
     - mecab

@@ -1,6 +1,6 @@
 import os
 import codecs
-import ko_pron
+from lib import ko_pron
 from jaconv import alphabet2kata
 from lib.util import WriteFile
 from pprint import pprint
